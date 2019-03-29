@@ -38,3 +38,7 @@ RUN apt-get update && apt-get install -y \
     libtool \
     automake \
     && rm -rf /var/lib/apt/lists/*
+
+RUN groupadd -g 1000 appuser && \
+    useradd -r -u 1000 -g appuser appuser
+USER appuser
